@@ -1,0 +1,119 @@
+@import "../../responsive.scss";
+
+.slider {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+
+    .fullSlider {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        background-color: black;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 9999;
+
+        .arrow {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                width: 50%;
+                height: 50%;
+                cursor: pointer;
+
+                @include md {
+                    width: 40%;
+                    height: 40%;
+                }
+            
+                @include md {
+                    width: 30%;
+                    height: 30%;
+                }
+
+                &.right {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+
+        .imgContainer {
+            flex: 10;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+
+            
+            &::before,
+            &::after {
+                content: "";
+                position: absolute;
+                width: 20px;
+                height: 2px;
+                background-color: black;
+            }
+
+            &::before {
+                transform: rotate(45deg);
+            }
+
+            &::after {
+                transform: rotate(-45deg);
+            }
+        }
+    }
+
+    img {
+        width: 100%;
+        height: 260px;
+        object-fit: cover;
+        border-radius: 10px;
+        cursor: pointer;
+
+        @include md {
+            height: 200px;
+        }
+    }
+    .bigImage {
+        flex: 3;
+    }
+
+    .smallImages {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        img {
+            height: 80px;
+
+            @include md {
+                height: 60px;
+            }
+        }
+    }
+}

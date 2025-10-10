@@ -1,0 +1,119 @@
+@import "../../responsive.scss";
+
+.login {
+  display: flex;
+  height: 100vh;
+
+  .textContainer {
+    flex: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+
+    .wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .formContainer {
+      width: 350px;
+      background: #fff;
+      padding: 40px 32px 32px 32px;
+      border-radius: 12px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 18px;
+
+      h2 {
+        margin-bottom: 12px;
+        font-size: 2rem;
+        font-weight: 600;
+        text-align: left;
+      }
+
+      .loginForm {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+
+        input {
+          padding: 12px 14px;
+          border: 1px solid #d1d5db;
+          border-radius: 6px;
+          font-size: 1rem;
+          outline: none;
+          transition: border 0.2s;
+          &:focus {
+            border: 1.5px solid #008080;
+          }
+        }
+
+        button {
+          padding: 12px 0;
+          background: #008080;
+          color: #fff;
+          border: none;
+          border-radius: 6px;
+          font-size: 1rem;
+          font-weight: 600;
+          cursor: pointer;
+          margin-top: 6px;
+          transition: background 0.2s;
+          &:hover {
+            background: #006666;
+          }
+        }
+      }
+
+      .signupLink {
+        margin-top: 8px;
+        font-size: 0.95rem;
+        color: #008080;
+        text-align: left;
+        text-decoration: underline;
+        cursor: pointer;
+        &:hover {
+          color: #005555;
+        }
+      }
+    }
+  }
+
+  .imageContainer {
+    flex: 2;
+    background-color: #fcf5f3;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include md {
+      display: none;
+    }
+
+    img {
+      width: 115%;
+      position: absolute;
+      right: 0;
+      @include lg {
+        width: 105%;
+      }
+    }
+  }
+
+  @include sm {
+    .textContainer {
+      .formContainer {
+        width: 100%;
+        padding: 24px 10px 18px 10px;
+      }
+    }
+  }
+}
+
+

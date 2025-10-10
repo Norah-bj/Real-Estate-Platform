@@ -1,0 +1,191 @@
+@import "../../responsive.scss";
+
+nav {
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  a {
+    transition: all 0.4s ease;
+
+    @include sm {
+      display: none;
+    }
+
+    &:hover {
+      scale: 1.05;
+    }
+  }
+
+  @include md{
+    // height: 80px;
+    gap: 10px;
+  }
+
+  .left {
+    flex: 3;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+
+    @include lg {
+      gap: 35px;
+    }
+
+    @include md {
+      gap: 30px;
+    }
+
+    .logo {
+      font-weight: bold;
+      font-size: 20px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+
+      img {
+        width: 28px;
+      }
+
+      span {
+        @include md {
+          display: none;
+        }
+
+        @include sm {
+          display: initial;
+        }
+      }
+    }
+  }
+
+  .right {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    background-color: #fcf5f3;
+    height: 100%;
+
+    @include lg {
+      width: 224px;
+      background-color: transparent;
+    }
+
+    @include md {
+      background-color: transparent;
+    }
+
+    a {
+      padding: 12px 0px;
+      margin: 20px;
+    }
+
+    @include lg {
+      a {
+        padding: 0;
+        margin: 10px;
+      }
+    }
+
+    @include md {
+      a {
+        padding: 0px;
+        margin: 6px;
+      }
+    }
+
+    .user {
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+
+      img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 20px;
+      }
+
+      span{
+        @include sm{
+          display: none;
+        }
+      }
+
+      .profile {
+        background-color: #fece51;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        position: relative;
+
+        .notification{
+          position: absolute;
+          top: -6px;
+          right: -6px;
+          background-color: red;
+          color: #fff;
+          width: 18px;
+          height: 18px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          // font-size: 10px; 
+        }
+      }
+    }
+
+    .register {
+      background-color: #fece51;
+      color: #fff;
+      border-radius: 10px;
+      padding: 10px 20px;
+    }
+
+    .menuIcon {
+      display: none;
+      z-index: 999;
+
+      img {
+        width: 36px;
+        height: 36px;
+        cursor: pointer;
+      }
+
+      @include sm {
+        display: initial;
+      }
+    }
+
+    .menu {
+      position: absolute;
+      top: 0;
+      right: -150%;
+      background-color: black;
+      color: white;
+      height: 100vh;
+      width: 50%;
+      transition: all 1s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      z-index: 10;
+
+      &.active {
+        right: 0;
+      }
+
+      @include sm {
+        a {
+          display: initial;
+        }
+      }
+    }
+  }
+}
