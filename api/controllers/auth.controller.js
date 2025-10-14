@@ -31,6 +31,12 @@ export const register = async (req, res) => {
     });
     } catch (error) {
         console.log(error);
+        if (error.code === "P2002") {
+            const target = error.meta?.target || "email";
+            return res.status(409).json({
+                message: "User already exists",
+            });
+        }
         res.status(500).json({
             message: "User creation failed",
             error: error.message,
