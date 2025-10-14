@@ -30,7 +30,7 @@ export const register = async (req, res) => {
         user: newUser,
     });
     } catch (error) {
-        console.log(error);
+        // console.log(error)
         if (error.code === "P2002") {
             const target = error.meta?.target || "email";
             return res.status(409).json({
