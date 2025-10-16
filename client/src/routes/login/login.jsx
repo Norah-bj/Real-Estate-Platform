@@ -2,10 +2,15 @@ import "./login.scss";
 import { Link } from "react-router-dom";
 
 function Login() {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    // TODO: handle login
+  }
+
   return (
     <div className="login">
       <div className="formContainer">
-        <form>
+        <form onSubmit={handleSubmit}>
           <h1>Welcome back</h1>
           <input name="username" type="text" placeholder="Username" />
           <input name="password" type="password" placeholder="Password" />
