@@ -72,7 +72,7 @@ export const login = async (req, res) => {
             });
         }
 
-        console.log("Login successful");
+        // console.log("Login successful");
 
         //generate a token and send it to the user
 
@@ -88,14 +88,13 @@ export const login = async (req, res) => {
             expiresIn: age,
         })
 
+        const {password:userPassword, ...userInfo} = user
+
         res.cookie("token", token, {
             httpOnly: true,
             // secure: true, //TO DO make it true in production 
             maxAge: age,
-        }).status(200).json({
-            message: "Login successful",
-            // user: user,
-        });
+        }).status(200).json(userInfo);
 
     } catch (err) {
         console.log(err);
