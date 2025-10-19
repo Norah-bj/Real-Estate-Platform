@@ -1,11 +1,13 @@
 import "./registerPage.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 
 
 function Register() {
   const [error, setError] = useState(null);
+
+  const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -14,7 +16,7 @@ function Register() {
     const password = formData.get("password");
     const data = { username, email, password };
     // const data = Object.fromEntries(formData);
-    console.log(data);
+    // console.log(data);
 
     try{
       const response = await axios.post("http://localhost:8800/api/auth/register",{
@@ -22,10 +24,11 @@ function Register() {
         email,
         password
     })
-    console.log(response.data)
+    // console.log(response.data)
+    navigate("/login")
     }catch(err){
       console.log(err)
-      //setError(err.response.data)
+      setError(err.response.data.message)
     }
   }
   return (
@@ -37,6 +40,7 @@ function Register() {
           <input name="email" type="text" placeholder="Email" />
           <input name="password" type="password" placeholder="Password" />
           <button >Register</button>
+          {error && <span>{error}</span>}
           <Link to="/login">Do you have an account?</Link>
         </form>
       </div>
