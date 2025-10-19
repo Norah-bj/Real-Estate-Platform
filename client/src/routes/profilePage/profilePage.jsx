@@ -21,6 +21,7 @@ function ProfilePage() {
             </span>
             <span>Username: <b>John Doe</b></span>
             <span>E-mail: <b>john@gmail.com</b></span>
+            <button onClick={handleLogout}>Logout</button>
           </div>
           <div className="title">
             <h1>My List</h1>
