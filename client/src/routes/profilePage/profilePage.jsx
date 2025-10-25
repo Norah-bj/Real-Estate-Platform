@@ -3,6 +3,11 @@ import List from "../../components/list/list.jsx";
 import Chat from "../../components/chat/chat.jsx";
 
 function ProfilePage() {
+
+  const handleLogout = () => {
+    // handle logout
+  }
+
   return (
     <div className="profilePage">
       <div className="details">
