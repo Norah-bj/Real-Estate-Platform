@@ -1,11 +1,21 @@
 import "./profilePage.scss";
 import List from "../../components/list/list.jsx";
 import Chat from "../../components/chat/chat.jsx";
+import apiRequest from "../../lib/apiRequest.js";
+import { useNavigate } from "react-router-dom";
 
 function ProfilePage() {
 
+  const navigate = useNavigate();
+
   const handleLogout = () => {
-    // handle logout
+    try{
+      const res = apiRequest.post("/auth/logout");
+      localStorage.removeItem("user")
+      navigate("/");
+    }catch{
+
+    }
   }
 
   return (
